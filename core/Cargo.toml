@@ -1,0 +1,19 @@
+[package]
+name = "leak-sim-core"
+version = "0.1.0"
+edition = "2021"
+description = "個人情報流出シミュレータのコアエンジン"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+rand = { version = "0.10", default-features = false, features = ["alloc"] }
+rand_pcg = "0.10"
+wasm-bindgen = "0.2.104"
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
